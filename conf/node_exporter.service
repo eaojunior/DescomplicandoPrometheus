@@ -7,7 +7,8 @@ After=network-online.target
 Type=simple
 User=node_exporter
 Group=node_exporter
-ExecStart=/usr/local/bin/node_exporter
+EnvironmentFile=/etc/node_exporter/node_exporter_options
+ExecStart=/usr/local/bin/node_exporter $OPTIONS
 
 SyslogIdentifier=node_exporter
 Restart=always
